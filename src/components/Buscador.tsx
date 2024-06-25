@@ -60,7 +60,7 @@ const Buscador: React.FC = () => {
             {loading && <p>Cargando...</p>}
             {error && <p>{error}</p>}
 
-            {resultado.length > 0 && (
+            {resultado && (
                 <div className="mt-4">
                     <table className="table-auto w-full">
                         <thead>
