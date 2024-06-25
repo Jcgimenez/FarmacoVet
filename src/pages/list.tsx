@@ -36,7 +36,7 @@ export default function List() {
   return (
     <div>
       <Navbar />
-      <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-secondary">
+      <main className="flex min-h-screen flex-col items-center justify-between p-24 ">
         {resultado && (
           <div className="mt-4 bg-complementary text-primary">
             <table className="table-auto w-full">
