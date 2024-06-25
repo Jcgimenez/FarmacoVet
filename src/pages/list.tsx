@@ -1,3 +1,4 @@
+import InfoDev from "@/components/InfoDev";
 import Navbar from "@/components/NavBar";
 import React, { useState, useEffect } from 'react';
 
@@ -5,9 +6,9 @@ interface FarmacosI {
   id: number;
   nombre: any;
   descripcion: string;
-  objetivo: string;
+  grupo: string;
   mecanismo: string;
-  familia: string;
+  familia_nombre: string;
 }
 
 export default function List() {
@@ -34,11 +35,11 @@ export default function List() {
   }, []);
 
   return (
-    <div>
+    <div className="bg-primary">
       <Navbar />
-      <main className="flex min-h-screen flex-col items-center justify-between p-24 ">
+      <main className="flex min-h-screen flex-col items-center justify-between bg-primary">
         {resultado && (
-          <div className="mt-4 bg-complementary text-primary">
+          <div className="bg-complementary text-primary">
             <table className="table-auto w-full">
               <thead>
                 <tr>
@@ -54,9 +55,9 @@ export default function List() {
                   <tr key={farmaco.id}>
                     <td className="border px-4 py-2">{farmaco.nombre}</td>
                     <td className="border px-4 py-2">{farmaco.descripcion}</td>
-                    <td className="border px-4 py-2">{farmaco.objetivo}</td>
+                    <td className="border px-4 py-2">{farmaco.grupo}</td>
                     <td className="border px-4 py-2">{farmaco.mecanismo}</td>
-                    <td className="border px-4 py-2">{farmaco.familia}</td>
+                    <td className="border px-4 py-2">{farmaco.familia_nombre}</td>
                   </tr>
                 ))}
               </tbody>
@@ -64,6 +65,7 @@ export default function List() {
           </div>
         )}
       </main>
+      <InfoDev />
     </div>
   );
 }

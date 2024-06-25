@@ -3,7 +3,7 @@ export default function InfoDev() {
         <footer className="w-full bg-primary text-white p-2">
             <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
                 <div className="mb-4 md:mb-0">
-                    <ul className="mt-2 flex gap-4">
+                    <ul className="flex gap-4">
                         <li>
                             <a
                                 href="https://www.linkedin.com/in/juancruzgimenez/"
