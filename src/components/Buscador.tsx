@@ -58,9 +58,6 @@ const Buscador: React.FC = () => {
                 </button>
             </form>
 
-            {loading && <p>Cargando...</p>}
-            {error && <p>{error}</p>}
-
             {resultado && (
                 <div className="mt-4 bg-complementary text-primary">
                     <table className="table-auto w-full">
