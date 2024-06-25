@@ -1,14 +1,5 @@
 import React, { useState } from 'react';
 
-interface FarmacosI {
-    id: number;
-    nombre: any;
-    descripcion: string;
-    objetivo: string;
-    mecanismo: string;
-    familia: string;
-}
-
 const Buscador: React.FC = () => {
     const [resultado, setResultado] = useState<any>(null);
     const [nombreF, setNombre] = useState('');
@@ -57,35 +48,6 @@ const Buscador: React.FC = () => {
                     </svg>
                 </button>
             </form>
-
-            {resultado && (
-                <div className="mt-4 bg-complementary text-primary">
-                    <table className="table-auto w-full">
-                        <thead>
-                            <tr>
-                                <th className="border px-4 py-2">Nombre</th>
-                                <th className="border px-4 py-2">Descripción</th>
-                                <th className="border px-4 py-2">Grupo</th>
-                                <th className="border px-4 py-2">Mecanismo</th>
-                                <th className="border px-4 py-2">Familia</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {resultado.map((farmaco: any) => (
-                                <tr key={farmaco.id}>
-                                    <td className="border px-4 py-2">{farmaco.nombre}</td>
-                                    <td className="border px-4 py-2">{farmaco.descripcion}</td>
-                                    <td className="border px-4 py-2">{farmaco.grupo}</td>
-                                    <td className="border px-4 py-2">{farmaco.mecanismo}</td>
-                                    {farmaco.familia_nombre && (
-                                        <td className="border px-4 py-2">{farmaco.familia_nombre}</td>
-                                    )}
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            )}
         </div>
     );
 };
