@@ -14,8 +14,16 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method === 'GET') {
         try {
             // Consulta SQL para seleccionar todos los registros de la tabla 'farmacos'
+            // que tienen una coincidencia en la tabla 'familias'
             const queryFarmacos = `
-                SELECT * FROM farmacos
+                SELECT 
+                    farmacos.*, 
+                    CASE 
+                        WHEN CAST(farmacos.familia AS INTEGER) = 0 THEN '' 
+                        ELSE familias.nombre 
+                    END AS familia_nombre
+                FROM farmacos 
+                LEFT JOIN familias ON CAST(farmacos.familia AS INTEGER) = familias.id;
             `;
 
             // Conectar y ejecutar la consulta

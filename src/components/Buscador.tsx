@@ -6,6 +6,7 @@ interface FarmacosI {
     descripcion: string;
     objetivo: string;
     mecanismo: string;
+    familia: string;
 }
 
 const Buscador: React.FC = () => {
@@ -61,14 +62,15 @@ const Buscador: React.FC = () => {
             {error && <p>{error}</p>}
 
             {resultado && (
-                <div className="mt-4">
+                <div className="mt-4 bg-complementary text-primary">
                     <table className="table-auto w-full">
                         <thead>
                             <tr>
                                 <th className="border px-4 py-2">Nombre</th>
                                 <th className="border px-4 py-2">Descripción</th>
-                                <th className="border px-4 py-2">Objetivo</th>
+                                <th className="border px-4 py-2">Grupo</th>
                                 <th className="border px-4 py-2">Mecanismo</th>
+                                <th className="border px-4 py-2">Familia</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -76,8 +78,11 @@ const Buscador: React.FC = () => {
                                 <tr key={farmaco.id}>
                                     <td className="border px-4 py-2">{farmaco.nombre}</td>
                                     <td className="border px-4 py-2">{farmaco.descripcion}</td>
-                                    <td className="border px-4 py-2">{farmaco.objetivo}</td>
+                                    <td className="border px-4 py-2">{farmaco.grupo}</td>
                                     <td className="border px-4 py-2">{farmaco.mecanismo}</td>
+                                    {farmaco.familia_nombre && (
+                                        <td className="border px-4 py-2">{farmaco.familia_nombre}</td>
+                                    )}
                                 </tr>
                             ))}
                         </tbody>
